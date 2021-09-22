@@ -76,9 +76,9 @@ Everything should be ready for the execution.
 	      
 	  3.3 The metrics with a "->" have one or more parameters which can be tuned. For a complete list of the metrics and the corresponding parameters we refer to the "TomoTherapy® Complexity Metrics Reference Guide". 
 	  
- 	      BE VERY CAREFULL TO:
+ 	      BE VERY CAREFULL:
 	 	
-	      !A) Use the correct synthax
+	      !A) To use the correct synthax
 	 	
 	      !B) Not to add the "->" and some parameter to the metrics which do not have parameters to be tuned.
 	 	
