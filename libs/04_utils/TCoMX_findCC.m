@@ -1,4 +1,4 @@
-function [openidx, closedidx, connected_components] = findCC(A)
+function [openidx, closedidx, connected_components] = TCoMX_findCC(A)
 
 % Take the absolute values of the sinogram entries (useless)
 A = abs(A);

@@ -122,7 +122,7 @@ for ii=1:tomoplan.NCP - 1 % Number of projections = number of CPs - 1
         area.centroid(ii,1) = mean(abs(idx-(tomoplan.Nleaves/2+0.5)));
         
         % Store the dimension of the connected components
-        [~,~, cc] = findCC(tmp);
+        [~,~, cc] = TCoMX_findCC(tmp);
         
         % Store the dimensions of the connected components
         area.lengthCC = [area.lengthCC cc];
