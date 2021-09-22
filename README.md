@@ -35,22 +35,22 @@ Everything should be ready for the execution.
 ## Execution
 1. PREPARATION OF THE DATASET:
 
-	1.1 Create a new folder on your computer and put there all the plans that you want to extract the metrics from.
+    1.1 Create a new folder on your computer and put there all the plans that you want to extract the metrics from.
 	
-	2.1 Create a new empty folder on your pc to store the results of the execution
+    2.1 Create a new empty folder on your pc to store the results of the execution
 	
 	
 2. SELECTION OF THE INPUT AND OUTPUT FOLDERS:
 
-	1.1 Move to TCoMX/database/input;
+    1.1 Move to TCoMX/database/input;
 	
-	1.2 Open CONFIG.in:
+    1.2 Open CONFIG.in:
 	
-	    1.2.1 (Optional) Give a name to the execution by typing it below # Analysis ID name;
+       1.2.1 (Optional) Give a name to the execution by typing it below # Analysis ID name;
 	
-	    1.2.2 Add the full path of the input folder created during the "PREPARATION OF THE DATASET"
+       1.2.2 Add the full path of the input folder created during the "PREPARATION OF THE DATASET"
 		
-	    1.2.3 ADD the full path of the results folder created during the "PREPARATION OF THE DATASET"
+       1.2.3 ADD the full path of the results folder created during the "PREPARATION OF THE DATASET"
 		
 		
 		
