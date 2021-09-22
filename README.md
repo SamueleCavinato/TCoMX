@@ -72,5 +72,27 @@ Everything should be ready for the execution.
 	      
 	      !B) Remove a subcategory without removing the corresponding metrics
 	      
-	  3.3 
+	  3.3 The metrics with a "->" have one or more parameters which can be tuned. For a complete list of the metrics and the corresponding parameters we refer to the "TomoTherapy® Complexity Metrics Reference Guide". 
+	  
+	 	BE VERY CAREFULL TO:
+	 	
+	 	!A) Use the correct synthax
+	 	
+	 	!B) Not to add the "->" and some parameter to the metrics which do not have parameters to be tuned.
+	 	
+	   3.4 Type TCoMX on you Matlab console. 
+	   
+ 	4. READING THE RESULTS
+ 	  4.1 The results of the execution are stored in a subfolder of the results folder created at step 2.1. The folder is authomatically created by TCoMX and its name is unique so that it cannot be overwritten by the following executions. 
+ 	  
+ 	  4.2 The subfolder contains: 
+ 	      -> CONFIG.in : a copy of the CONFIG.in file 
+ 	      -> METRICS.in: a copy of the METRICS.in file
+ 	      -> logfile.txt: a summary of the execution
+ 	      -> dataset.mat: the results of the extraction process as a .mat file
+ 	      -> dataset.xlsx: the results of the extraction process as an .xlsx file
+ 	      
+ 	      
+	  
+	   
 	  
