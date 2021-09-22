@@ -8,3 +8,6 @@ The library is compatible with the latest versions of the two Therapy Planning S
 The library can be used both on Windows and Linux Ubuntu operative systems.
 
 ## Prerequisites
+-> Matlab® R2018a or later (the library might be compatible with previous version, but the retro-compatibility was tested up to version R2018a)
+-> Windows or LinuxUbuntu (the library was tested on Windows10 and Ubuntu 20.04 LTS).
+
