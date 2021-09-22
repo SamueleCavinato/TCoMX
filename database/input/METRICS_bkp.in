@@ -17,11 +17,6 @@ LOT distribution:
         minFLOT
         maxFLOT
 		CFNS -> 5, 10, 25, 50, 75, 90, 95, 98, 100			
-	Projected LOT statistics:
-		mean
-		median
-		mode
-		standard_deviation
 		
 Sinogram:
 	Modulation:
