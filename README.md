@@ -45,4 +45,14 @@ Everything should be ready for the execution.
 	1.1 Move to TCoMX/database/input;
 	
 	1.2 Open CONFIG.in
+		(Optional) Give a name to the execution by typing it below # Analysis ID name;
+		Add the full path of the input folder created during the "PREPARATION OF THE DATASET"
+		
+		ADD the full path of the results folder created during the "PREPARATION OF THE DATASET"
+		
+		
+		
+		
+		
+	
 	1.3 
