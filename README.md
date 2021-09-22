@@ -52,7 +52,7 @@ Everything should be ready for the execution.
 	
 	    2.2.2. Add the full path of the input folder created during the "PREPARATION OF THE DATASET"
 	
-     	    2.2.3. ADD the full path of the results folder created during the "PREPARATION OF THE DATASET"
+	    2.2.3. ADD the full path of the results folder created during the "PREPARATION OF THE DATASET"
 		
 	3. SELECTION OF THE METRICS TO COMPUTE
 	
