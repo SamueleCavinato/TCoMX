@@ -80,9 +80,9 @@ Everything should be ready for the execution.
 	 	
 	 	!B) Not to add the "->" and some parameter to the metrics which do not have parameters to be tuned.
 	 	
-	   3.4 Type TCoMX on you Matlab console. 
+	   3.4 Type TCoMX on your Matlab console. 
 	   
-## READING THE RESULTS
+## Reading the results
 The results of the execution are stored in a subfolder of the results folder created at step 2.1. The folder is automatically created by TCoMX and its name is unique so that it cannot be overwritten by the following executions. 
 The subfolder contains: 
 
