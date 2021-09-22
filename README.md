@@ -23,7 +23,7 @@ Please go through the following steps to get TCoMX installed on your computer:
 	
 	3. Open the PATH_TO_TCoMX_FOLDER.in file
 	
-	4. Add the full path of the TCoMX folder on you computer
+	4. Add the full path of the TCoMX folder on you computer as YOUR_PATH/TCoMX
 	
 	3. Open Matlab
 	
