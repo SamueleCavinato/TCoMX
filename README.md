@@ -16,20 +16,33 @@ The library can be used both on Windows and Linux Ubuntu operative systems.
 
 ## Installation
 Please go through the following steps to get TCoMX installed on your computer:
+
 	1. Download and extract TCoMX
+	
 	2. Move to TCoMX/database/input
+	
 	3. Open the PATH_TO_TCoMX_FOLDER.in file
+	
 	4. Add the full path of the TCoMX folder on you computer
+	
 	3. Open Matlab
+	
 	4. Add the TCoMX directory and subdirectories to your Matlab path
+
 
 Everything should be ready for the execution.
 
 ## Execution
 1. PREPARATION OF THE DATASET:
+
 	1.1 Create a new folder on your computer and put there all the plans that you want to extract the metrics from.
+	
 	2.1 Create a new empty folder on your pc to store the results of the execution
+	
+	
 2. SELECTION OF THE INPUT AND OUTPUT FOLDERS:
+
 	1.1 Move to TCoMX/database/input;
+	
 	1.2 Open CONFIG.in
 	1.3 
