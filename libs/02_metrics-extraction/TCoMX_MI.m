@@ -1,42 +1,39 @@
 function patient = TCoMX_MI(tomoplan, METRICS_LIST, patient)
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MIcalc Computes the MI for a Helical Tomotherapy plan.
-%   MIcalc(tomoplan) computes the Modulation Index (MI) starting from the
-%   sinogram and the projection time contained in tomoplan.sinogram and
-%   tomoplan.ProjectionTime. tomoplan is the structure returned by
-%   tomo_read_plan(filename) funtion of TCoMX. The MI is computed
-%   considering the time variability in 4 different directions: leaves
-%   direction, projection direction, diagonal direction and anti-diagonal
-%   direction. 
-%   The metric is computed in the version presented in Santos et al., JACMP
-%   2020, "On the complexity of helical tomotherapy treatment plans". 
+% TCoMX_MI Calculates MI
+%
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
 %
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename) 
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
 %
 %   OUTPUT ARGUMENTS:
-%      MI : struct containing the following fields:
-%       MIplan: Modulation Index computed as the discrete integral of the
-%               average cumulative distribution (greater or equal) of the 
-%               average time variability in 4 directions.
-%                          
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The sub-fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padova, Department of Physics and Astronomy
+%
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: April, 2021
+%       Updated: September, 2021
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % DO NOT HESITATE CONTACTING ME FOR ANY QUESTION/DOUBT/SUGGESTION. I'LL BE
-% VERY GLAD TO DISCUSS WITH YOU. 
+% VERY GLAD TO DISCUSS WITH YOU.
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

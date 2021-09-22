@@ -1,72 +1,39 @@
 function patient = TCoMX_LOTstats(tomoplan, METRICS_LIST, patient)
-% LOTstats Computes statistics about the LOT of a Helical Tomotherapy plan.
-%   LOTstats(tomoplan) computes statistics related to the Leaf Open Time of
-%   starting from the sinogram and projection time contained in
-%   tomplan.sinogram and tomoplan.ProjectionTime. tomoplan is the structure
-%   returned by tomo_read_plan(filename) function of TCoMX. For detailed
-%   information about the statistical metrics see the OUTPUT ARGUMENTS.
-%   The metrics are computed in the version presented in Santos et al., JACMP
-%   2020, "On the complexity of helical tomotherapy treatment plans".
+% TCoMX_LOTstats Calculates mLOT, sdLOT, mdLOT, moLOT, kLOT, sLOT, minLOT, maxLOT, CLNSn, mFLOT, sdFLOT, mdFLOT, moFLOT, minFLOT, maxFLOT, CFNSn    
+%
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
 %
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename)
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
 %
 %   OUTPUT ARGUMENTS:
-%      stats: structure array containing the following LOT statistics:
-%        meanLOT: Arithmetic average of all non-zero LOT in the sinogram;
-%        stdLOT : Standard deviation of all non-zero LOT in the sinohram;
-%        medianLOT : median of the LOT distribution
-%        modeLOT: mode of the LOT distribution
-%        LOT100cp: Percentage fraction of LOT < 100 ms at each projection.
-%                  Projections with 0 open leaves result in a LOT100cp=NaN.
-%        LOT100plan: Arithmetic average of LOT100cp. NaN values are
-%                    excluded from the computation using the 'omitnan'
-%                    flag.
-%        LOT100std : Arithmetic average of LOT100cp. NaN values are
-%                    excluded from the computation using the 'omitnan'
-%                    flag.
-%        LOT50cp  : Percentage fraction of LOT < 50 ms at each projection.
-%                   Projections with 0 open leaves result in a LOT100cp=NaN.
-%        LOT50plan: Arithmetic average of LOT50cp. NaN values are
-%                   excluded from the computation using the 'omitnan'
-%                   flag.
-%        LOT50std : Arithmetic average of LOT50cp. NaN values are
-%                   excluded from the computation using the 'omitnan'
-%                   flag.
-%        LOT30cp  : Percentage fraction of LOT < 30 ms at each projection.
-%                   Projections with 0 open leaves result in a LOT100cp=NaN.
-%        LOT30plan: Arithmetic average of LOT30cp. NaN values are
-%                   excluded from the computation using the 'omitnan'
-%                   flag.
-%        LOT30std : Arithmetic average of LOT30cp. NaN values are
-%                   excluded from the computation using the 'omitnan'
-%                   flag.
-%        LOTpt20cp: Percentage fraction of LOT > (pt-20) ms at each projection.
-%                   Projections with 0 open leaves result in a LOT100cp=NaN.
-%        LOTpt20plan: Arithmetic average of LOT100cp. NaN values are
-%                     excluded from the computation using the 'omitnan'
-%                     flag.
-%        LOTpt20std : Arithmetic average of LOTpt20cp. NaN values are
-%                     excluded from the computation using the 'omitnan'
-%                     flag.
-%                          
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The sub-fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padova, Department of Physics and Astronomy
+%
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: April, 2021
+%       Updated: September, 2021
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % DO NOT HESITATE CONTACTING ME FOR ANY QUESTION/DOUBT/SUGGESTION. I'LL BE
-% VERY GLAD TO DISCUSS WITH YOU. 
+% VERY GLAD TO DISCUSS WITH YOU.
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

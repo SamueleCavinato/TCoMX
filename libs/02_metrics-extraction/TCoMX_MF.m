@@ -1,45 +1,39 @@
 function patient = TCoMX_MF(tomoplan, METRICS_LIST, patient)
-%function [MFleaf, MFplan, MFstd] = MFcalc(tomoplan)
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MFcalc Computes the MF metric for a Helical Tomotherapy plan.
-%   MFcalc(tomoplan) computes the Modulation Factor starting from the
-%   sinogram contained in tomoplan.sinogra. tomplan si tge structure
-%   returned by tomo_read_plan(filename) function of TCoMX. 
+% TCoMX_MF Calculates MF
 %
-%   MF is computed by taking the maximum LOT value in the sinogram and
-%   dividing it by the arithmetic average of non-zero LOT in the sinogram.
-% 
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
+%
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename) 
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
-%--------------------------------------------------------------------------
-%   OUTPUT ARGUMENTS: OLD VERSION
-%      MFleaf: Modulation Factor for each leaf
-%      MFplan: Arithmetic average of MFleaf computed over all the leaves 
-%              which open at least once during the treatment
-%      MFstd:  Standard deviation of MFleaf computed over all the leaves 
-%              which open at least once during the treatment
-%-------------------------------------------------------------------------- 
-%   OUTPUT ARGUMENTS: NEW VERSION
-%      MF : stuct containing the following fields:
-%       MFplan: Modulation Factor computed over the whole sinogram.
-%                          
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
+%
+%   OUTPUT ARGUMENTS:
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The sub-fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padova, Department of Physics and Astronomy
+%
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: April, 2021
+%       Updated: September, 2021
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % DO NOT HESITATE CONTACTING ME FOR ANY QUESTION/DOUBT/SUGGESTION. I'LL BE
-% VERY GLAD TO DISCUSS WITH YOU. 
+% VERY GLAD TO DISCUSS WITH YOU.
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

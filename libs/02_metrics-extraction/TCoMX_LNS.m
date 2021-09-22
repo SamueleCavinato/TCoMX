@@ -1,56 +1,39 @@
 function patient = TCoMX_LNS(tomoplan, METRICS_LIST, patient)
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LNScalc Calculates the LNS metrics for a tomotherapy plan.
-%   LNScalc(tomoplan) computes the Leaf Neighbor Score (LNS) metrics 
-%   starting from the sinogram contained in tomoplan.sinogram. tomoplan is 
-%   the structure returned by tomo_read_plan(filename) function of TCoMX.
-%   The LNS metrics are computed at each projection by considering the
-%   number of open leaves with 0 (1) open neighbors in case of L0NS (L1NS).
-%   Then, plan LNS is computed as the arithmetic average over all
-%   projections with at least one open leaf (LNS of projection with 0 open
-%   leaves return NaN values, which are ignored in the computatino of the
-%   arithmetic average using the 'omitnan' flag. 
-%   The metric is computed in the version presented in Santos et al., JACMP
-%   2020, "On the complexity of helical tomotherapy treatment plans". 
-%  
+% TCoMX_LNS Calculates LnNS 
+%
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
+%
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename) 
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
 %
 %   OUTPUT ARGUMENTS:
-%       LNS : struct containing the following field:
-%        L0NScp  : Leaf Zero Neighbors Score computed at each projection
-%        L0NSplan: Arithmetic average of L0NScp over all the projection 
-%                  with at least one open leaf
-%        L0NSstd : Standard deviation of L0NSplan compute over all the
-%                  projection with at least one open leaf
-%        L1NScp  : Leaf One Neighbor Score computed at each projection
-%        L1NSplan: Arithmetic average of L1NScp over all the projection 
-%                  with at least one open leaf
-%        L1NSstd : Standard deviation of L1NScp compute over all the
-%                  projection with at least one open leaf
-%        L2NScp  : Leaf Two Neighbors Score computed at each projection
-%        L2NSplan: Arithmetic average of L2NScp over all the projection 
-%                  with at least one open leaf
-%        L2NSstd : Standard deviation of L2NScp compute over all the
-%                  projection with at least one open leaf
-%                          
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The sub-fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padova, Department of Physics and Astronomy
+%
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: April, 2021
+%       Updated: September, 2021
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % DO NOT HESITATE CONTACTING ME FOR ANY QUESTION/DOUBT/SUGGESTION. I'LL BE
-% VERY GLAD TO DISCUSS WITH YOU. 
+% VERY GLAD TO DISCUSS WITH YOU.
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

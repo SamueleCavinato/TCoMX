@@ -1,46 +1,39 @@
 function patient = TCoMX_LOTV(tomoplan, METRICS_LIST, patient)
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% LOTVcalc Calculates the LOTV metric for a Helical Tomotherapy plan.
-%   LOTVcalc(tomoplan) computes thee Leaf Open Time Variability metric
-%   starting from the sinogram contained in tomoplan.sinogram. tomoplan is
-%   the structure returned by tomo_read_plan(filename) function of TCoMX.
-%   The LOTV metric is computed for all leaves which open at least once
-%   during the treatment. The plan LOTV is computed as the arithmetic
-%   average of leaf LOTV over those leaves (LOTV for leaves which don't
-%   open during the treatment result in NaN values which are ignore the
-%   computation of the average using the 'omitnan' flag).  
-%   The metric is computed in the version presented in Santos et al., JACMP
-%   2020, "On the complexity of helical tomotherapy treatment plans". 
-%  
+% TCoMX_LOTV Calculates LOTV, ELOTV_Deltap
+%
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
+%
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename) 
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
 %
 %   OUTPUT ARGUMENTS:
-%      LOTV : struct containing the following fields:
-%       LOTVleaf: Leaf Open Time Variability metric for each leaf
-%       LOTVplan: Arithmetic average of LOTVleaf over all the leaves which
-%                 open at least once duting the treatment
-%       LOTVstd : Standard deviation of LOTVleaf over all the leaves which
-%                 open at least once during the treatment
-%       activeleaves: leaves which open at least once during the treatment
-%                          
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The sub-fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padova, Department of Physics and Astronomy
+%
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: April, 2021
+%       Updated: September, 2021
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % DO NOT HESITATE CONTACTING ME FOR ANY QUESTION/DOUBT/SUGGESTION. I'LL BE
-% VERY GLAD TO DISCUSS WITH YOU. 
+% VERY GLAD TO DISCUSS WITH YOU.
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

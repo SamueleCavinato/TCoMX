@@ -1,79 +1,34 @@
 function patient = TCoMX_CLS(tomoplan, METRICS_LIST, patient)
-% CLScalc Calculates the CLS metrics for a tomotherapy plan.
-%   CLScalc(tomoplan) computes the Closed Leaf Score (CLS) metrics starting
-%   from the sinogram contained in tomoplan.sinogram. tomoplan is the
-%   structure retuned by tomo_read_plan(filename) function of TCoMX.
-%   The CLS metrics are computed at each projection. Then, plan CLS is
-%   computed as the arithemetic average over all projections.
-%   The CLS metric is computed both considering the whole binary MLC
-%   area and the treatment area only. For the latter, the
-%   treatment area is defined by the leaves within the right most and the
-%   left most open leaves.
-%   The metric is computed in the version presented in Santos et al., JACMP
-%   2020, "On the complexity of helical tomotherapy treatment plans".
+% TCoMX_CLS Calculates CLS, CLSin, CLSinarea, CLSindisc, CLSinareadisc, TA, C, nCC, nLCC, lengthCC, fDISC
 %
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
+%   
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename)
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
 %
 %   OUTPUT ARGUMENTS:
-%      CLS : struct with following field:
-%
-%       CLScp    : Closed Leaf Score computed at each projection considering
-%                  the whole binary MLC area
-%       CLSplan  : arithmetic average of CLScp over all the projections
-%       CLSstd   : standard deviation of CLScp over all the projections
-%       CLSin    : Closed InterLeaf Score at each projections computed as
-%                  the ratio between the number of closed leaves within the
-%                  treatment area and the total number of leaves.
-%       CLSinplan: arithmetic average of CLSin over all the projections
-%       CLSinstd : standard deviation of CLSin over all the projections
-%
-%
-%      area: struct with following field:
-%
-%       treatment_area   : treatment area for each projection. It
-%                          corresponds to the number of leaves within the
-%                          first and last open
-%       closed_leaves_in : number of closed leaves withing the treatment
-%                          area at each projection
-%       centroid         : average position of the open leaves at each
-%                          projection
-%       length_CC        : length of the connected components at each
-%                          projection
-%       nCC              : number of connected components at each
-%                          projection
-%       nCCplan          : averange number of connected components over all
-%                          the projections
-%       lengthCCplan     : average length of the connected components over
-%                          all the projections
-%       TAplan           : average treatment area over all the projections
-%       TAstd            : standard deviation of the treatment area over
-%                          all the projections
-%       EMcp             : edge metrics at each projection computed as the
-%                          ratio between the number of open leaves and the
-%                          number of connected componenents at the
-%                          corresponding projection.
-%       EMplan           : average EM over all the projections ignoring NaN
-%                          values
-%       centroidplan     : average centroid over all the projections
-%       centroidstd      : standard deviation of the centroid over all the
-%                          projections
-%       discproj         : percentage number of projections with
-%                          discontinuous field (nCC > 1) over the total
-%                          number of projections
-%
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padova, Department of Physics and Astronomy
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: April, 2021
+%       Updated: September, 2021
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -102,7 +57,6 @@ clear closedleaves
 area.treatment_area = zeros(tomoplan.NCP-1,1);
 area.closed_leaves_in = zeros(tomoplan.NCP-1,1);
 
-% Allocate the CLSin array
 CLS.CLSin     = zeros(tomoplan.NCP - 1,1);
 CLS.CLSinarea = zeros(tomoplan.NCP - 1,1);
 area.centroid = zeros(tomoplan.NCP-1, 1);
@@ -194,9 +148,6 @@ if ~isempty(output)
 end
 
 
-% % Compute the treatment area std
-% area.TAstd = std(area.treatment_area);
-
 area.nLCCcp = (area.treatment_area-area.closed_leaves_in) ./ area.nCC;
 
 
@@ -213,8 +164,6 @@ if ~isempty(output)
     end
     
 end
-
-% area.EMstd = std(nonzeros(area.treatment_area-area.closed_leaves_in)./nonzeros(area.nCC));
 
 % Compute the percentage of CPs with closed leaves within TA
 
@@ -233,7 +182,6 @@ if ~isempty(output)
     
 end
 
-% area.discproj = nnz(area.closed_leaves_in)/(tomoplan.NCP-1)*100;
 
 output  = TCoMX_FIND_METRIC(METRICS_LIST, 'CLS');
 
@@ -247,14 +195,8 @@ if ~isempty(output)
                 metricname = ['CLS'];
                 
                 patient.(output.category).(output.subcategory).(metricname) =  mean(CLS.CLScp, 'omitnan');
+ 
                 
-%                 % Compute the average over all CPs
-%                 CLS.CLSplan = mean(CLS.CLScp, 'omitnan');
-% 
-%                 % Compute the std over all CPs
-%                 CLS.CLSstd  = std(CLS.CLScp, 'omitnan');
-
-            
             elseif strcmp(output.parameters{pp}, 'inareadisc')
                 metricname = ['CLSinareadisc'];
                 
@@ -268,10 +210,6 @@ if ~isempty(output)
                     patient.(output.category).(output.subcategory).(metricname) = 0.0;
                     
                 end
-                
-                %                         % Compute the mean of CLSinarea over the non-continuous projections
-                %                         CLS.CLSinareaplandisc = mean(nonzeros(CLS.CLSinarea), 'omitnan');
-                %                         %CLS.CLSinareaplandisc = CLS.CLSinareaplandisc; %* nnz(~isnan(nonzeros(CLS.CLSinarea))) / (tomoplan.NCP-1);
                 
             elseif strcmp(output.parameters{pp}, 'inarea')
                 
@@ -324,35 +262,9 @@ if ~isempty(output)
             
         end
         
-%                     % Compute the mean of CLSinarea over all the projections
-%                     CLS.CLSinareaplanall  = mean(CLS.CLSinarea, 'omitnan');
-%                     % CLS.CLSinareaplanall  = CLS.CLSinareaplanall * nnz(~isnan(CLS.CLSinarea)) / (tomoplan.NCP-1);
-
-%                     % Compute the std of the treatment area
-%                     CLS.CLSinareadiscstd  = std(nonzeros(CLS.CLSinarea), 'omitnan');
-%
-%                     % Compute the std of the treatment area
-%                     CLS.CLSinareaallstd   = std(CLS.CLSinarea, 'omitnan');
         
     end
-    
-    
-    
-%             % Compute the arithmetic average over all projections
-%             CLS.CLSinplanall = mean(CLS.CLSin, 'omitnan');
-% Compute the arithmetic average over all projections
-%             CLS.CLSinplandisc = mean(nonzeros(CLS.CLSin), 'omitnan');
-%             % Compute the standard deviation over all projections
-%             CLS.CLSinallstd  = std(CLS.CLSin, 'omitnan');
-% Compute the standard deviation over all projections
-%             CLS.CLSindiscstd  = std(nonzeros(CLS.CLSin), 'omitnan');
-%         else
-%             CLS.CLSinplanall  = 0;
-%             CLS.CLSinallstd   = 0;
-%             CLS.CLSinplandisc = 0;
-%             CLS.CLSindiscstd  = 0;
-%         end
-    
+      
 end
 
 

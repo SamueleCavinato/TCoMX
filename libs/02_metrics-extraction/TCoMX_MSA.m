@@ -1,39 +1,39 @@
 function patient = TCoMX_MSA(tomoplan, METRICS_LIST, patient)
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FOTcalc Project the sinogram onto the leaf axis and compute statistics.
-%   FOTcalc(tomoplan) projects the sinogram onto the horizontal axis in
-%   order to compute the Fractional Open Time (FOT), i.e. the percentage
-%   open time of each leaf over the whole treatment. Morover, some
-%   statistics related to the FOT distribution is computed.
-%   This is a new metric implemented at Veneto Insitute Of Oncology
-%   (IOV-IRCCS), Padova, Veneto, Italy. 
-%  
+% TCoMX_MSA Calculates MSA
+%
+%   All the details concerning the definition and meaning of each metric 
+%   can be found in the "TomoTherapy® Complexity Metrics Reference Guide". 
+%
 %   INPUT ARGUMENTS:
 %      tomoplan: structure array containing information about a
-%                TomoTherapy plan as returned by tomo_read_plan(filename) 
+%                TomoTherapy® plan as returned by the function TCoMX_read_plan
 %                of TCoMX.
+%       METRICS_LIST: structure array containing all the metrics to be
+%                     computed according to the METRICS.in file.
+%       patient: structure containing the results of the computation
 %
 %   OUTPUT ARGUMENTS:
-%      FOT: structure array containing the following fields:
-%             name: plan name
-%       histogramX: projection of the sinogram onto the x-axis as 
-%                   columnwise sum. It is multiplied by the ProjectionTime 
-%                   and divided by the TreatmentTime. It is then multiplied
-%                   by 100 to obtain a percentage.
-%             mean: average FOT computed over all leaves with FOT>0.
-%           median: median FOT computed over all leaves with FOT>0.
-%              std: FOT standard dev. computed over all leaves with FOT>0.
-%       
+%       patient: structure array containing the metrics computed according
+%                to the METRICS.in file. The sub-fields are organized in
+%                categories and sub-categories accordingly to the "TomoTherapy® 
+%                Complexity Metrics Reference Guide"
+%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-%        Author: Samuele Cavinato, Research Fellow @IOV-IRCCS /
-%                                  Ph.D. Student @unipd
-%   Affiliation: Veneto Institute of Oncology, IOV-IRCCS /
-%                University of Padua, Department of Physics and Astronomy
+%
+%        Author: Samuele Cavinato, MSc, Ph.D. Student
+%   Affiliation: Department of Medical Physics, Veneto Institute of 
+%                Oncology IOV-IRCCS /
+%                Department of Physics and Astronomy 'G.Galilei',
+%                University of Padova
 %        e-mail: samuele.cavinato@iov.veneto.it
 %                samuele.cavinato@phd.unipd.it
 %       Created: November, 2020
-%       Updated: January, 2021
+%       Updated: September, 2021
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% DO NOT HESITATE CONTACTING ME FOR ANY QUESTION/DOUBT/SUGGESTION. I'LL BE
+% VERY GLAD TO DISCUSS WITH YOU.
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
