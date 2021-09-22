@@ -52,9 +52,25 @@ Everything should be ready for the execution.
 	
      	    2.2.3. ADD the full path of the results folder created during the "PREPARATION OF THE DATASET"
 		
-		
-		
-		
-		
+	3. SELECTION OF THE METRICS TO COMPUTE
 	
-	1.3.
+	  3.1 Move to TCoMX/database/input;
+	  
+	  3.2 Open METRICS.in: all the metrics are organized in categories and sub-categories. You can do the following things:
+	  
+	      a) Leave everything as it is and compute all the metrics;
+	      
+	      b) Remove some metric
+	      
+	      c) Remove a whole subcategory
+	      
+	      d) Remove a whole category
+	      
+	      BE VERY CAREFULL TO AVOID THE FOLLOWING:
+	      
+	      !A) Remove a category without removing the corresponding subcategories
+	      
+	      !B) Remove a subcategory without removing the corresponding metrics
+	      
+	  3.3 
+	  
