@@ -36,6 +36,8 @@ Everything should be ready for the execution.
 	1. PREPARATION OF THE DATASET:
 
 	  1.1. Create a new folder on your computer and put there all the plans that you want to extract the metrics from
+
+	  IN TCoMX/database/utils/reference_dataset  
 	
 	  2.1. Create a new empty folder on your pc to store the results of the execution
 	
