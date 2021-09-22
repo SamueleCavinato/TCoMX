@@ -85,9 +85,9 @@ Everything should be ready for the execution.
 ## READING THE RESULTS
 The results of the execution are stored in a subfolder of the results folder created at step 2.1. The folder is authomatically created by TCoMX and its name is unique so that it cannot be overwritten by the following executions. 
 The subfolder contains: 
-	a) CONFIG.in : a copy of the CONFIG.in file 
-      	b) METRICS.in: a copy of the METRICS.in file
-      	c) logfile.txt: a summary of the execution
-      	d) dataset.mat: the results of the extraction process as a .mat file
- 	e) dataset.xlsx: the results of the extraction process as a .xlsx file
+	a. CONFIG.in : a copy of the CONFIG.in file 
+      	b. METRICS.in: a copy of the METRICS.in file
+      	c. logfile.txt: a summary of the execution
+      	d. dataset.mat: the results of the extraction process as a .mat file
+ 	e. dataset.xlsx: the results of the extraction process as a .xlsx file
 
