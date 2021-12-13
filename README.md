@@ -19,11 +19,11 @@ Please go through the following steps to get TCoMX installed on your computer:
 
 	1. Download and extract TCoMX
 	
-	2. Move to TCoMX/database/input
+	2. Move to TCoMX-main/database/input
 	
 	3. Open the PATH_TO_TCoMX_FOLDER.in file
 	
-	4. Add the full path of the TCoMX folder on you computer as YOUR_PATH/TCoMX
+	4. Add the full path of the TCoMX folder on you computer as YOUR_PATH/TCoMX-main
 	
 	3. Open Matlab
 	
@@ -37,14 +37,14 @@ Everything should be ready for the execution.
 
 	  1.1. Create a new folder on your computer and put there all the plans that you want to extract the metrics from
 
-	  IN ~/TCoMX/database/utils/reference_dataset THERE ARE 9 ANONYMIZED RT PLANS THAT YOU CAN USE TO TEST THE CODE
+	  IN ~/TCoMX-main/database/utils/reference_dataset THERE ARE 9 ANONYMIZED RT PLANS THAT YOU CAN USE TO TEST THE CODE
 	
 	  2.1. Create a new empty folder on your pc to store the results of the execution
 	
 	
 	2. SELECTION OF THE INPUT AND OUTPUT FOLDERS:
 
-	  2.1. Move to TCoMX/database/input;
+	  2.1. Move to TCoMX-main/database/input;
 	
 	  2.2. Open CONFIG.in:
 	  
@@ -56,7 +56,7 @@ Everything should be ready for the execution.
 		
 	3. SELECTION OF THE METRICS TO COMPUTE
 	
-	  3.1 Move to TCoMX/database/input;
+	  3.1 Move to TCoMX-main/database/input;
 	  
 	  3.2 Open METRICS.in: all the metrics are organized in categories and sub-categories. You can do the following things:
 	  

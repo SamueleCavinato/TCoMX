@@ -1,0 +1,10 @@
+# Analysis ID name
+put_name_here
+# Dataset input folder
+set/your/input/path
+# Results output folder 
+set/your/output/path
+# Read from file
+False
+# List file name
+filename.xlsx

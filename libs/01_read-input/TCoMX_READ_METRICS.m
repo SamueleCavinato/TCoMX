@@ -6,10 +6,10 @@ fclose(fid);
 
 METRICS_LIST = [];
 
-categories = {'LOT distribution';
+categories = {'LOT statistics';
               'Sinogram';};
 
-subcategories = {{'Absolute LOT statistics'; 'Relative LOT statistics';};
+subcategories = {{'Absolute LOT'; 'Relative LOT';};
                  {'Modulation'; 'Geometry';}};
 
 cat_indexes = [];

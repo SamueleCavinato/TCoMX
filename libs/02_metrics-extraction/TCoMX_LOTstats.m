@@ -258,7 +258,7 @@ if ~isempty(output)
                 metricname = strrep(metricname, ' ', '');
                 checkpoint = str2num(strrep(output.parameters{pp}, 'pt', ''));
                 
-                patient.(output.category).(output.subcategory).(metricname) = nnz(sinogram(openleaves)*ProjectionTime > (ProjectionTime - checkpoint))/length(openleaves)*100;  
+                patient.(output.category).(output.subcategory).(metricname) = nnz(sinogram(openleaves)*ProjectionTime > (ProjectionTime - checkpoint))/length(openleaves);%*100;  
                 
             elseif contains(output.parameters(pp), 'all')
                 
@@ -272,7 +272,7 @@ if ~isempty(output)
                 metricname = strrep(metricname, ' ', '');
 
                 if checkpoint >= 0      
-                    patient.(output.category).(output.subcategory).(metricname) = nnz(sinogram(openleaves)*ProjectionTime < checkpoint)/length(openleaves)*100;
+                    patient.(output.category).(output.subcategory).(metricname) = nnz(sinogram(openleaves)*ProjectionTime < checkpoint)/length(openleaves);%*100;
                 else
                      patient.(output.category).(output.subcategory).(metricname) = nan;
                 end
@@ -298,7 +298,7 @@ if ~isempty(output)
            
             metricname = strtrim(metricname);
                         
-            patient.(output.category).(output.subcategory).(metricname) = nnz(sinogram(openleaves) < checkpoint/100)/length(openleaves)*100;
+            patient.(output.category).(output.subcategory).(metricname) = nnz(sinogram(openleaves) < checkpoint/100)/length(openleaves);%*100;
             
         end
         

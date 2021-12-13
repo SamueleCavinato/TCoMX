@@ -34,5 +34,18 @@ end
 
 inputpar.PATH_TO_TCoMX_FOLDER = string(PATH_TO_TCoMX_FOLDER);
 
+
+idx = find(contains(upper(inputdata{1,1}), "READ FROM FILE"));
+if ~isempty(idx)
+	inputpar.read_from_file   = string(cell2mat(inputdata{1,1}(idx+1)));
+end
+
+
+idx = find(contains(upper(inputdata{1,1}), "LIST FILE NAME"));
+if ~isempty(idx)
+	inputpar.list_file_name   = string(cell2mat(inputdata{1,1}(idx+1)));
+end
+
+
 end
 

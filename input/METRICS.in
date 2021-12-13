@@ -1,0 +1,42 @@
+LOT statistics:
+	Absolute LOT:
+		mLOT
+		sdLOT
+		mdLOT
+		moLOT
+		kLOT
+		sLOT
+       	minLOT
+       	maxLOT
+		CLNS -> 100, 50, 30, 20, pt20
+	Relative LOT:
+       	mFLOT
+       	sdFLOT
+        	mdFLOT
+       	moFLOT
+       	minFLOT
+        	maxFLOT
+		CFNS -> 5, 10, 25, 50, 75, 90, 95, 98, 100					
+Sinogram:
+	Modulation:
+		LOTV
+        	ELOTV -> 1,2,3,4,5
+       	PSTV 
+		EPSTV -> [1;1], [1;2], [1;10], [0;1], [1;0]
+		MI
+		nOC
+		MSA
+		mSI
+		sdSI
+		mdSI
+    Geometry:
+		CLS -> normal, in, indisc, inarea, inareadisc
+		TA
+		lengthCC
+		nCC
+		centroid
+		fDISC
+		LNS -> 0, 1, 2
+		
+
+

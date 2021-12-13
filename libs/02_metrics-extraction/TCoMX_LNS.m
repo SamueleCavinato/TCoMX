@@ -120,7 +120,7 @@ if ~isempty(output)
             metricname = ['L' output.parameters{pp} 'NS'];
 
             LNS.([metricname 'cp']) = nb==str2num(output.parameters{pp});
-            LNS.([metricname 'cp']) = sum(LNS.([metricname 'cp']),2) ./ sum(openleaves,2) * 100;
+            LNS.([metricname 'cp']) = sum(LNS.([metricname 'cp']),2) ./ sum(openleaves,2);% * 100;
             
             % Compute average and standard deviations over projections
             patient.(output.category).(output.subcategory).(metricname) = mean(LNS.([metricname 'cp']), 'omitnan');

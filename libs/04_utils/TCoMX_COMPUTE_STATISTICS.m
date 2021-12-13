@@ -13,6 +13,6 @@ function metrics_statistics = TCoMX_COMPUTE_STATISTICS(metrics_table)
     RowNames = cell2table({'Mean'; 'Median'; 'Mode'; 'SD'; 'Min'; 'Max'});
     metrics_statistics.Properties.VariableNames = metrics_table.Properties.VariableNames;
     metrics_statistics = [RowNames metrics_statistics];
-    metrics_statistics.Properties.VariableNames{1,1} = ' ';
+    metrics_statistics.Properties.VariableNames{1,1} = 'stat';
 
 end

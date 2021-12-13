@@ -48,7 +48,7 @@ sinogram = tomoplan.sinogram;
 closedleaves = sinogram(1:end-1,:) == 0;
 
 % Compute the CLS at each CP
-CLS.CLScp   = sum(closedleaves,2)/size(closedleaves,2)*100;
+CLS.CLScp   = sum(closedleaves,2)/size(closedleaves,2);%*100;
 
 clear closedleaves
 
@@ -93,14 +93,14 @@ for ii=1:tomoplan.NCP - 1 % Number of projections = number of CPs - 1
         
         % Compute the percentage ratio of closed leaves between idx(min)
         % and idx(max) with respect to the total number of leaves.
-        CLS.CLSin(ii) = closedleaves / tomoplan.Nleaves * 100;
+        CLS.CLSin(ii) = closedleaves / tomoplan.Nleaves; % * 100;
         
     end
     
     % Compute the percentage ratio of closed leaves between idx(min)
     % and idx(max) with respect to the treatment area
     CLS.CLSinarea(ii,1) = area.closed_leaves_in(ii,1)/...
-        area.treatment_area(ii,1) * 100;
+        area.treatment_area(ii,1);% * 100;
 end
 
 output  = TCoMX_FIND_METRIC(METRICS_LIST, 'nCC');
@@ -148,22 +148,22 @@ if ~isempty(output)
 end
 
 
-area.nLCCcp = (area.treatment_area-area.closed_leaves_in) ./ area.nCC;
-
-
-output  = TCoMX_FIND_METRIC(METRICS_LIST, 'nLCC');
-
-if ~isempty(output)
-    
-    if isempty(output.parameters)
-        metricname = ['nLCC'];
-        
-        % Compute the average number of connected componenents
-        patient.(output.category).(output.subcategory).(metricname) = mean(area.nLCCcp, 'omitnan');
-        
-    end
-    
-end
+% area.nLCCcp = (area.treatment_area-area.closed_leaves_in) ./ area.nCC;
+% 
+% 
+% output  = TCoMX_FIND_METRIC(METRICS_LIST, 'nLCC');
+% 
+% if ~isempty(output)
+%     
+%     if isempty(output.parameters)
+%         metricname = ['nLCC'];
+%         
+%         % Compute the average number of connected componenents
+%         patient.(output.category).(output.subcategory).(metricname) = mean(area.nLCCcp, 'omitnan');
+%         
+%     end
+%     
+% end
 
 % Compute the percentage of CPs with closed leaves within TA
 
@@ -176,7 +176,7 @@ if ~isempty(output)
          metricname = ['fDISC'];
         
         % Compute the average number of connected componenents
-        patient.(output.category).(output.subcategory).(metricname) = nnz(area.closed_leaves_in)/(tomoplan.NCP-1)*100;
+        patient.(output.category).(output.subcategory).(metricname) = nnz(area.closed_leaves_in)/(tomoplan.NCP-1); %*100;
         
     end
     
@@ -219,7 +219,6 @@ if ~isempty(output)
                     
                     % Compute the average over all CPs
                     patient.(output.category).(output.subcategory).(metricname) = mean(CLS.CLSinarea, 'omitnan');
-%                     patient.(output.category).(output.subcategory).(metricname) = mean(CLS.CLSinarea, 'omitnan')*nnz(~isnan(CLS.CLSinarea)) / (tomoplan.NCP-1);
 
                 else
                     
@@ -283,10 +282,6 @@ if ~isempty(output)
     
 end
 
-% Compute the centroid of the distribution for the plan
-area.centroidplan = mean(area.centroid);
-% Compute the standard deviation of the centroid of the plan
-area.centroidstd  = std(area.centroid);
 
 clear closedleaves idx tmp sinogram
 
