@@ -1,6 +1,6 @@
 function METRICS_LIST = TCoMX_READ_METRICS
 
-fid  = fopen('database/input/METRICS.in');
+fid  = fopen('input/METRICS.in');
 file_content = textscan(fid, '%s', 'Delimiter', '\n');
 fclose(fid);
 

@@ -56,7 +56,7 @@ if ~isempty(output)
 
 	metricname = 'MSA';
     
-    Pj = 1:tomoplan.Nleaves;
+    Pj = (1:tomoplan.Nleaves)-tomoplan.Nleaves/2+0.5;
     LPS = sum(sinogram,1)*ProjectionTime/TreatmentTime;
     
     % Project the sinogram onto the horizontal axis
