@@ -11,7 +11,7 @@ fclose(f1);
 
 clear f1
 
-fid       = fopen(fullfile(string(PATH_TO_TCoMX_FOLDER), 'database', 'input', 'CONFIG.in'), 'r');
+fid       = fopen(fullfile(string(PATH_TO_TCoMX_FOLDER), 'input', 'CONFIG.in'), 'r');
 inputdata = textscan(fid, '%s', 'Delimiter', '\n');
 fclose(fid);
 
