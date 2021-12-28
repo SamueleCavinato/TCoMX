@@ -183,8 +183,8 @@ fprintf(logfile, '%s\n%s\n%s\n%s\n%s\n%s\n%s\n%i\n%s\n%i', ....
 
 fclose(logfile);
 
-copyfile(fullfile(inputpar.PATH_TO_TCoMX_FOLDER, 'database', 'input', 'CONFIG.in'), savefld);
-copyfile(fullfile(inputpar.PATH_TO_TCoMX_FOLDER, 'database', 'input', 'METRICS.in'), savefld);
+copyfile(fullfile(inputpar.PATH_TO_TCoMX_FOLDER, 'input', 'CONFIG.in'), savefld);
+copyfile(fullfile(inputpar.PATH_TO_TCoMX_FOLDER, 'input', 'METRICS.in'), savefld);
 
 clear logfile status
 
