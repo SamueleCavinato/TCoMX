@@ -13,7 +13,7 @@ Ubuntu 20.04.1 LTS and the compatibility with Windows 10 was verified. The compa
 with other versions of the two operating systems as well as with other operating systems
 needs to be investigated. A reference dataset composed by 18 anonymized DICOM RT-
 PLAN files (9 Precision, 9 RayStation) is also provided in this repository.
-We refer to the TCoMX_UserManual it this repository for any detail concerning its functioning. 
+We refer to the TCoMX_UserManual in this repository for any detail concerning its functioning. 
 
 ## Aim 
 TCoMX was realized in order to provide common tool to be used across the different institutions. A strong effort was done to make the library accessible to any type of user, even to non expert programmers. Furthermore, no fees are needed to use it because we believe that science is based on the free sharing of knowledge and tools. 
