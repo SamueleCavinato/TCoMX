@@ -31,7 +31,7 @@ and adding by adding a link to this repository in the main text: https://github.
 If you need other citation formats, you can refer to the updated version of the TCoMX User Manual on arxiv: http://arxiv.org/abs/2112.15056
 
 ## Results
-We are planning to add a secion "Results" to the TCoMX User Manual in order to collect all the relevant findings obtained using TCoMX, with the reference to the work were they are published. Therefore, if you publish some results obtained using TCoMX do not hesitate to contact us. This might also help you to gain visibility. 
+We are planning to add a secion "Results" to the TCoMX User Manual in order to collect all the relevant findings obtained using TCoMX, with the reference to the work were they are published. Therefore, if you publish some results obtained using TCoMX and you want us to add them to the TCoMX User Manual, do not hesitate to contact us. This might also help you to gain visibility. 
 
 ## Correspondences
 Please send any correspondence to samuele.cavinato@iov.veneto.it or alessandro.scaggion@iov.veneto.it.
