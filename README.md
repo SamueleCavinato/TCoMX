@@ -16,7 +16,7 @@ PLAN files (9 Precision, 9 RayStation) is also provided in this repository.
 We refer to the TCoMX_UserManual it this repository for any detail concerning its functioning. 
 
 ## Aim 
-
+TCoMX was realized in order to provided a common tools for the extraction of helical tomotherapy complexity metrics to be used across the different institutions. TCoMX is released under a GNU GPL v3 licence. Despite you can can share modified versions of the library by stating the changings, we warmly encourage the authors that are interested in adding new interesting and usefull features to it, to contact us to collaborate. Science is sharing results and knowledge. 
 
 ## How to cite
 Please cite the library in your works as: 
