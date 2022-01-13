@@ -25,6 +25,8 @@ Please cite the library in your works as:
 
 Cavinato S, Scaggion A. TCoMX: Tomotherapy Complexity Metrics EXtractor. ArXiv211215056 Phys. Published online December 30, 2021. Accessed January 7, 2022. http://arxiv.org/abs/2112.15056
 
+and adding by adding a link to this repository in the main text: https://github.com/SamueleCavinato/TCoMX
+
 If you need other citation formats, you can refer to the updated version of the TCoMX User Manual on arxiv: http://arxiv.org/abs/2112.15056
 
 ## Results
