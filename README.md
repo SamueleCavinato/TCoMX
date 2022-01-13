@@ -17,7 +17,8 @@ We refer to the TCoMX_UserManual it this repository for any detail concerning it
 
 ## Aim 
 TCoMX was realized in order to provide common tool to be used across the different institutions. A strong effort was done to make the library accessible to any type of user, even to non expert programmers. Furthermore, no fees are needed to use it because we believe that science is based on the free sharing of knowledge and tools. 
-For this reason, TCoMX is released under a GNU GPL v3 licence that allow you to use, modify and distribute new versions of the library by following two simple rules (1) give to others the same freedom you had from us (2) state the changes you did (please find all the technical details in the LICENCE file). However, in the same spirit of sharing knowledge, we warmly encourage the authors that are interested in adding new interesting and usefull features to the library, to contact us in order to set up a collaboration and keep this folder always updated.
+For this reason, TCoMX is released under a GNU GPL v3 licence that allow you to use and modify it, as well as to distribute new versions of the library by following two simple rules (1) give to the others the same freedom we have you (2) state all the changes you perform (please find all the technical details in the LICENCE file). 
+However, in the same spirit of sharing knowledge, we warmly encourage the authors that are interested in adding new interesting and useful features to the library to contact us in order to set up a collaboration and keep this repository always updated.
 
 ## How to cite
 Please cite the library in your works as: 
