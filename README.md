@@ -14,3 +14,16 @@ with other versions of the two operating systems as well as with other operating
 needs to be investigated. A reference dataset composed by 18 anonymized DICOM RT-
 PLAN files (9 Precision, 9 RayStation) is also provided in this repository.
 We refer to the TCoMX_UserManual it this repository for any detail concerning its functioning. 
+
+## How to cite
+Please cite the library in your works as: 
+
+Cavinato S, Scaggion A. TCoMX: Tomotherapy Complexity Metrics EXtractor. ArXiv211215056 Phys. Published online December 30, 2021. Accessed January 7, 2022. http://arxiv.org/abs/2112.15056
+
+If you need other citation formats, you can refer to the update version of the TCoMX User Manual on arxiv: http://arxiv.org/abs/2112.15056
+
+## Correspondences
+If you need help with the installation and/or execution, or if you have any suggestion or thing to share, you can contact us at samuele.cavinato@iov.veneto.it or alessandro.saggion@iov.veneto.it.
+
+
+
