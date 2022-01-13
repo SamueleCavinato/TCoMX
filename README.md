@@ -32,6 +32,6 @@ If you publish some results obtained using TCoMX and you want to gain visibility
 If you need help with the installation and/or execution of TCoMX, or if you have any suggestion or thing to share, you can contact us at samuele.cavinato@iov.veneto.it or alessandro.scaggion@iov.veneto.it.
 
 ## Footnotes
-TCoMX is intended for research use only and its clinical use of TCoMX is strongly forbidden. The authors don't take responsabilities of any improper use of the tools contained in this repository and of all the material related to it. 
+TCoMX is intended for research use only and its clinical is strongly forbidden. The authors don't take responsabilities of any improper use of the tools contained in this repository and of all the material related to it. 
 
 
