@@ -16,7 +16,7 @@ PLAN files (9 Precision, 9 RayStation) is also provided in this repository.
 We refer to the TCoMX_UserManual in this repository for any detail concerning its functioning. 
 
 ## Aim 
-TCoMX was realized in order to provide common tool to be used across the different institutions. A strong effort was done to make the library accessible to any type of user, even to non expert programmers. Furthermore, no fees are needed to use it because we believe that science is based on the free sharing of knowledge and tools. 
+TCoMX was realized in order to provide common tool to be used across the different institutions. A strong effort was done to make the library accessible to any type of user, even to non expert programmers. Furthermore, no fees are needed to use it because we believe that science is based on the free sharing of knowledge and on making tools accessible to everyone. 
 For this reason, TCoMX is released under a GNU GPL v3 licence that allow you to use and modify it, as well as to distribute new versions of the library by following two simple rules (1) give to the others the same freedom you received from us (2) state all the changes you perform (please find all the technical details in the LICENCE file). 
 However, in the same spirit of sharing knowledge, we warmly encourage the authors that are interested in adding new interesting and useful features to the library to contact us in order to set up a collaboration and keep this repository always updated.
 Finally, we are fully available to help you in the installation and/or execution of the library as well as to solve possible bugs that might arise. 
