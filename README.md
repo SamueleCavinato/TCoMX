@@ -22,13 +22,17 @@ However, in the same spirit of sharing knowledge, we warmly encourage the author
 Finally, we are fully available to help you in the installation and/or execution of the library as well as to solve possible bugs that might arise. 
 
 ## How to cite
-Please cite the library in your works as: 
+Please cite the library in your works as:
+
+Cavinato, S, Fusella, M, Paiusco, M, Scaggion, A. Quantitative assessment of helical tomotherapy plans complexity. J Appl Clin Med Phys. 2022;e13781. https://doi.org/10.1002/acm2.13781
+
+and 
 
 Cavinato S, Scaggion A. TCoMX: Tomotherapy Complexity Metrics EXtractor. ArXiv211215056 Phys. Published online December 30, 2021. Accessed January 7, 2022. http://arxiv.org/abs/2112.15056
 
-and by adding the link to this repository in the main text: https://github.com/SamueleCavinato/TCoMX
+and, if you want, by adding the link to this repository: https://github.com/SamueleCavinato/TCoMX
 
-If you need other citation formats, you can refer to the updated version of the TCoMX User Manual on arxiv: http://arxiv.org/abs/2112.15056
+If you need other citation formats, you can refer to https://aapm.onlinelibrary.wiley.com/doi/10.1002/acm2.13781 and to the updated version of the TCoMX User Manual at http://arxiv.org/abs/2112.15056
 
 ## Results
 We are planning to add a secion "Results" to the TCoMX User Manual in order to collect all the relevant findings obtained using TCoMX, with the reference to the work were they are published. Therefore, if you publish some results obtained using TCoMX and you want us to add them to dedicated section in the TCoMX User Manual, do not hesitate to contact us. This might also help you to gain visibility. 
