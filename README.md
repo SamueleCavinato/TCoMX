@@ -1,4 +1,13 @@
-# TCoMX - version v1.0
+# !!!! NEW PACKAGE AND NEW REPOSITORY ON ZENODO !!!!!
+Dear Users,
+
+We are excited to announce that TCoMX has been integrated into a more comprehensive software package called UCoMX (Universal Complexity Metrics Extractor). This package also includes complexity metrics for VMAT and IMRT plans, making it an increasingly universal tool that should meet the needs of a growing number of users. You can download the UCoMX package at: https://doi.org/10.5281/zenodo.8276837. Additionally, we encourage you to have a look to the related Technical Note published in Medical Physics: https://doi.org/10.1002/mp.17365.
+Please note that **this GitHub repository will no longer be maintained, and the TCoMX version hosted here will not receive further updates**.
+We would like to take this opportunity to thank all the users who have downloaded and used TCoMX in their work over the past two years. We are confident that the availability of UCoMX will help expand the user community and make the evaluation of treatment plan complexity even more accessible.
+
+Stay tuned for more updates!
+
+# TCoMX - version v1.0 - OBSOLETE VERSION
 TCoMX (Tomotherapy Complexity Metrics EXtractor) is a newly developed
 Matlab® (The Mathworks Inc, Natick, MA, USA) library for the automatic extraction of a
 wide set of complexity metrics from the DICOM RT-plan files of helical tomotherapy (HT)
