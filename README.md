@@ -1,4 +1,4 @@
-# !!!! NEW PACKAGE AND NEW REPOSITORY ON ZENODO !!!!!
+# !!! NEW PACKAGE AND NEW REPOSITORY ON ZENODO !!!
 Dear Users,
 
 We are excited to announce that TCoMX has been integrated into a more comprehensive software package called UCoMX (Universal Complexity Metrics Extractor). This package also includes complexity metrics for VMAT and IMRT plans, making it an increasingly universal tool that should meet the needs of a growing number of users. You can download the UCoMX package at: https://doi.org/10.5281/zenodo.8276837. Additionally, we encourage you to have a look to the related Technical Note published in Medical Physics: https://doi.org/10.1002/mp.17365.
